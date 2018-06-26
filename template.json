@@ -1,0 +1,109 @@
+{
+  "order": 1,
+  "template": "*moatkeeper*",
+  "settings": {
+    "index": {
+      "number_of_shards": "5",
+      "number_of_replicas": "4",
+      "refresh_interval": "5s"
+    }
+  },
+  "mappings": {
+    "_default_": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "request": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "span_name": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "body_bytes_sent": {
+          "type": "integer"
+        },
+        "type": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "http_user_agent": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "request_time": {
+          "type": "long"
+        },
+        "remote_addr": {
+          "index": "not_analyzed",
+          "type": "ip"
+        },
+        "user_ip": {
+          "index": "not_analyzed",
+          "type": "ip"
+        },
+        "request_body": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "http_referer": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "http_x_forwarded_for": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "upstream_response_time": {
+          "type": "text"
+        },
+        "response_time": {
+          "type": "float"
+        },
+        "app_id": {
+          "type": "text",
+          "fielddata": "true"
+        },
+        "app_ver": {
+          "type": "text",
+          "fielddata": "true"
+        },
+        "http_status": {
+          "type": "integer"
+        },
+        "server_protocol": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "source": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "content_length": {
+          "index": "not_analyzed",
+          "type": "text"
+        },
+        "path": {
+          "index": "not_analyzed",
+          "type": "keyword"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "geoip": {
+          "properties": {
+            "location": {
+              "type": "geo_point"
+            }
+          }
+        }
+      },
+      "_all": {
+        "enabled": false
+      }
+    }
+  },
+  "aliases": {}
+}
